@@ -30,13 +30,13 @@ io.on("connection",function(socket){
 
     console.log("hello worling")
     socket.on("send-location",function(data){
-        socket.broadcast.emit("receive-location",{id:socket.id,...data})
+        io.emit("receive-location",{id:socket.id,...data});
     })
 
     socket.on('disconnect',function(){
         io.emit("user-disconnected",socket.id)
-    })
-})
+    });
+});
 
 
 
