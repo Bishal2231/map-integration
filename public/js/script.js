@@ -27,6 +27,8 @@
 
 const markers={};
 socket.on("receive-location",(data)=>{
+    console.log("Received location:", data);  // Debugging line
+
     const {id,latitude,longitude}=data;
     map.setView([latitude,longitude]);
 
